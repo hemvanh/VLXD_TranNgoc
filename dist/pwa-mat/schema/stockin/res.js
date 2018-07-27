@@ -12,7 +12,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 var resolvers = {
   RootQuery: {
-    listProduct: function () {
+    listStockIn: function () {
       var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(_, __, _ref) {
         var authUser = _ref.authUser;
         return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -21,7 +21,24 @@ var resolvers = {
               case 0:
                 (0, _util._auth)(authUser);
                 _context.next = 3;
-                return _models.product.all();
+                return _models.StockIn.findAll({
+                  include: [{
+                    model: _models.Product,
+                    required: true
+                  }, {
+                    model: _models.Supplier,
+                    required: true
+                  }]
+                }).then(function (stockin) {
+                  return stockin.map(function (listStockIn) {
+                    var productName = listStockIn.get('Product').get('name');
+                    var supplierName = listStockIn.get('Supplier').get('name');
+                    return Object.assign(listStockIn.get(), {
+                      productName: productName,
+                      supplierName: supplierName
+                    });
+                  });
+                });
 
               case 3:
                 return _context.abrupt('return', _context.sent);
@@ -34,15 +51,15 @@ var resolvers = {
         }, _callee, this);
       }));
 
-      function listProduct(_x, _x2, _x3) {
+      function listStockIn(_x, _x2, _x3) {
         return _ref2.apply(this, arguments);
       }
 
-      return listProduct;
+      return listStockIn;
     }()
   },
   RootMutation: {
-    deleteProduct: function () {
+    deleteStockIn: function () {
       var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(_, _ref3, _ref4) {
         var input = _ref3.input;
         var authUser = _ref4.authUser;
@@ -52,12 +69,13 @@ var resolvers = {
               case 0:
                 (0, _util._auth)(authUser);
                 _context2.next = 3;
-                return Product.destroy({
+                return _models.StockIn.destroy({
                   where: {
                     id: {
                       $in: input
                     }
-                  }
+                  },
+                  individualHooks: true
                 });
 
               case 3:
@@ -71,13 +89,13 @@ var resolvers = {
         }, _callee2, this);
       }));
 
-      function deleteProduct(_x4, _x5, _x6) {
+      function deleteStockIn(_x4, _x5, _x6) {
         return _ref5.apply(this, arguments);
       }
 
-      return deleteProduct;
+      return deleteStockIn;
     }(),
-    updateProduct: function () {
+    updateStockIn: function () {
       var _ref8 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(_, _ref6, _ref7) {
         var input = _ref6.input;
         var authUser = _ref7.authUser;
@@ -86,15 +104,30 @@ var resolvers = {
             switch (_context3.prev = _context3.next) {
               case 0:
                 (0, _util._auth)(authUser);
-                _context3.next = 3;
-                return Product.upsert(input).then(function () {
+
+                if (!(input.id == undefined)) {
+                  _context3.next = 7;
+                  break;
+                }
+
+                _context3.next = 4;
+                return _models.StockIn.create(input, { individualHooks: true }).then(function () {
                   return input;
                 });
 
-              case 3:
+              case 4:
                 return _context3.abrupt('return', _context3.sent);
 
-              case 4:
+              case 7:
+                _context3.next = 9;
+                return _models.StockIn.update(input, { where: { id: input.id }, individualHooks: true }).then(function () {
+                  return input;
+                });
+
+              case 9:
+                return _context3.abrupt('return', _context3.sent);
+
+              case 10:
               case 'end':
                 return _context3.stop();
             }
@@ -102,11 +135,11 @@ var resolvers = {
         }, _callee3, this);
       }));
 
-      function updateProduct(_x7, _x8, _x9) {
+      function updateStockIn(_x7, _x8, _x9) {
         return _ref8.apply(this, arguments);
       }
 
-      return updateProduct;
+      return updateStockIn;
     }()
   }
 };

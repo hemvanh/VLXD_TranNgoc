@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "85cba3ca0dc8911361d31477c7af4ef8",
-    "url": "fonts/flUhRq6tzZclQEJ-Vdg-IuiaDsNa.85cba3c.woff"
+    "revision": "63cd0bb2e81a1af1da46094aaada7f53",
+    "url": "img/bridge.63cd0bb.jpg"
   },
   {
     "revision": "a13b2bd5261e2df374128df1aab93001",
@@ -16,8 +16,8 @@ self.__precacheManifest = [
     "url": "statics/quasar-logo.png"
   },
   {
-    "revision": "efb00e57304380d857603760600da5d5",
-    "url": "statics/icons/favicon-16x16.png"
+    "revision": "3020c8ac2c2872dec7741e5948520093",
+    "url": "statics/icons/icon-128x128.png"
   },
   {
     "revision": "de8b7431b74642e830af4d4f4b513ec9",
@@ -44,11 +44,15 @@ self.__precacheManifest = [
     "url": "fonts/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.415a0e9.woff2"
   },
   {
-    "revision": "9393f5732f157a7ae183",
-    "url": "js/vendor.9393f573.js"
+    "revision": "85cba3ca0dc8911361d31477c7af4ef8",
+    "url": "fonts/flUhRq6tzZclQEJ-Vdg-IuiaDsNa.85cba3c.woff"
   },
   {
-    "revision": "ad653a4aba2a5a7da76332d8202ad889",
+    "revision": "f956658dab1614ed9b8f",
+    "url": "js/vendor.f956658d.js"
+  },
+  {
+    "revision": "928d97f336e5452068d30fa17a147fb8",
     "url": "index.html"
   },
   {
@@ -56,16 +60,16 @@ self.__precacheManifest = [
     "url": "fonts/KFOlCnqEu92Fr1MmWUlfBBc-.cf6613d.woff"
   },
   {
+    "revision": "efb00e57304380d857603760600da5d5",
+    "url": "statics/icons/favicon-16x16.png"
+  },
+  {
     "revision": "2f9d7587924933c1912c342b190b53ca",
     "url": "statics/icons/favicon-32x32.png"
   },
   {
-    "revision": "3020c8ac2c2872dec7741e5948520093",
-    "url": "statics/icons/icon-128x128.png"
-  },
-  {
-    "revision": "f9e073bcfb3d975e342d",
-    "url": "js/app.f9e073bc.js"
+    "revision": "91d20bc382e3b65b0234",
+    "url": "js/app.91d20bc3.js"
   },
   {
     "revision": "da2b422e2895b9b9c1782a71b6be9d63",
@@ -84,11 +88,11 @@ self.__precacheManifest = [
     "url": "fonts/KFOkCnqEu92Fr1MmgVxIIzQ.e9dbbe8.woff"
   },
   {
-    "revision": "f9e073bcfb3d975e342d",
-    "url": "app.981942c2.css"
+    "revision": "91d20bc382e3b65b0234",
+    "url": "app.96c7efb5.css"
   },
   {
-    "revision": "9393f5732f157a7ae183",
-    "url": "0.6da79734.css"
+    "revision": "f956658dab1614ed9b8f",
+    "url": "0.f2358844.css"
   }
 ];
