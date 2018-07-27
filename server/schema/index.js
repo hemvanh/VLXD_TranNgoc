@@ -8,6 +8,9 @@ import productRes from './product/res'
 import supplierDef from './supplier/def'
 import supplierRes from './supplier/res'
 
+import sellingDef from './selling/def'
+import sellingRes from './selling/res'
+
 const SchemaDefinition = `
   schema {
     query: RootQuery,
@@ -17,11 +20,10 @@ const SchemaDefinition = `
 
 const RootQuery = `
   type RootQuery {
-    getUser: User
     listUser: [User]
-    
     listProduct: [Product]
     listSupplier: [Supplier]
+    listSelling: [Selling]
   }
 `
 
@@ -38,10 +40,12 @@ const RootMutation = `
     deleteSupplier(input:[Int]): Int
     updateSupplier(input:SupplierInput): Supplier
 
+    deleteSelling(input:[Int]): Int
+    updateSelling(input:SellingInput): Selling
   }
 `
 
 export default makeExecutableSchema({
-  typeDefs: [SchemaDefinition, RootQuery, RootMutation, userDef, productDef, supplierDef],
-  resolvers: [userRes, productRes, supplierRes],
+  typeDefs: [SchemaDefinition, RootQuery, RootMutation, userDef, productDef, supplierDef, sellingDef],
+  resolvers: [userRes, productRes, supplierRes, sellingRes],
 })

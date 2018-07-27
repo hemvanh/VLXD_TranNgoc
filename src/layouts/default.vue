@@ -35,6 +35,10 @@
           <q-item-side icon="security" />
           <q-item-main label="Tài Khoản Đăng Nhập" sublabel="Liệt Kê & Tìm Kiếm Tài Khoản" />
         </q-item>
+        <q-item to="/selling">
+          <q-item-side icon="add_shopping_cart" />
+          <q-item-main label="Bán Hàng" sublabel="Tất Cả Sản Phẩm Đã Bán" />
+        </q-item>
       </q-list>
     </q-layout-drawer>
 
