@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       hooks: {
         afterCreate: ({dataValues}, options) => {
-          sequelize.models.Stock.findOrCreate({
+          return sequelize.models.Stock.findOrCreate({
             where: {
               productId: dataValues.productId,
               price: dataValues.price,
@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
           }).spread(
             (stockin, created) => {
               if (!created) {
-                sequelize.models.Stock.update(
+                return sequelize.models.Stock.update(
                   {quantity: parseInt(stockin.get('quantity')) + parseInt(dataValues.quantity)},
                   {
                     where: {
@@ -36,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
         afterUpdate: ({dataValues, _previousDataValues, _changed}, options) => {
           var changedQuantity = parseInt(dataValues.quantity) - parseInt(_previousDataValues.quantity)
           if (_changed.quantity) {
-            sequelize.models.Stock.findOne(
+            return sequelize.models.Stock.findOne(
               {
                 where: {
                   productId: _previousDataValues.productId,
@@ -47,7 +47,7 @@ module.exports = (sequelize, DataTypes) => {
                 transaction: options.transaction,
               }
             ).then(stockin => {
-              sequelize.models.Stock.update(
+              return sequelize.models.Stock.update(
                 {quantity: parseInt(stockin.get('quantity')) + changedQuantity},
                 {
                   where: {
@@ -59,7 +59,7 @@ module.exports = (sequelize, DataTypes) => {
           }
         },
         afterDestroy: ({dataValues}, options) => {
-          sequelize.models.Stock.findOne(
+          return sequelize.models.Stock.findOne(
             {
               where: {
                 productId: dataValues.productId,
