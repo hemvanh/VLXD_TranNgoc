@@ -28,7 +28,7 @@ var resolvers = {
                   }]
                 }).then(function (StockOut) {
                   return StockOut.map(function (listStockOut) {
-                    var productName = listStockOut.getProduct().get('name');
+                    var productName = listStockOut.get('Product').get('name');
                     return Object.assign(listStockOut.get(), {
                       productName: productName
                     });
