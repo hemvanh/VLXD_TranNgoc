@@ -99,6 +99,7 @@ export default {
     // ...mapActions('product', ['fetchRecs', 'deleteRecs']),
     ...mapActions('product', {fetchRecsProduct: 'fetchRecs'}),
     ...mapActions('supplier', {fetchRecsSupplier: 'fetchRecs'}),
+    ...mapActions('stock', {fetchRecsStock: 'fetchRecs'}),
     ...mapActions({
       fetchRecs(dispatch, payload) {
         return dispatch(this.type + '/fetchRecs', payload)
@@ -112,6 +113,9 @@ export default {
         if (this.type === 'stockin' && (this.getRecsProduct.length === 0 || this.getRecsSuplier.length === 0)) {
           this.fetchRecsProduct()
           this.fetchRecsSupplier()
+        }
+        if (this.type === 'stockout') {
+          this.fetchRecsStock()
         }
         return dispatch(this.type + '/setEditingRec', payload)
       },
