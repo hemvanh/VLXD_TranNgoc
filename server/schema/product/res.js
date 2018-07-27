@@ -1,11 +1,11 @@
-import {product} from '../../models'
+import {Product} from '../../models'
 import {_auth} from '../../util'
 
 const resolvers = {
   RootQuery: {
     async listProduct(_, __, {authUser}) {
       _auth(authUser)
-      return await product.all()
+      return await Product.all()
     },
   },
   RootMutation: {
