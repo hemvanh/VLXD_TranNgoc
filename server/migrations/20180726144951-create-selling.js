@@ -17,10 +17,19 @@ module.exports = {
       quantity: {
         type: Sequelize.INTEGER,
       },
+      // foreign key...
       invoiceId: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Invoice',
+          model: 'invoices',
+          key: 'id',
+        },
+      },
+      productId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'products',
+          key: 'id',
         },
       },
     })

@@ -19,10 +19,14 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
+      // foreign key...
+      // * the ref-ed table must be created 1st
+      // * model: 'clients'  -> this is mysql table-name, not Sequelize model name
       clientId: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Client',
+          model: 'clients',
+          key: 'id',
         },
       },
     })
