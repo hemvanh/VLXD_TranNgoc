@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   var Client = sequelize.define(
     'Client',
     {
-      code: DataTypes.STRING,
+      taxCode: DataTypes.STRING,
       name: DataTypes.STRING,
       address: DataTypes.STRING,
       phone: DataTypes.STRING,
@@ -12,6 +12,9 @@ module.exports = (sequelize, DataTypes) => {
   )
   Client.associate = function(models) {
     // associations can be defined here
+    Client.hasMany(models.Invoice, {
+      foreignKey: 'clientId',
+    })
   }
   return Client
 }

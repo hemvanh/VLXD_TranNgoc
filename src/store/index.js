@@ -5,6 +5,7 @@ import product from './product'
 import supplier from './supplier'
 import client from './client'
 import user from './user'
+import selling from './selling'
 import stockin from './stockin'
 import stock from './stock'
 
@@ -16,6 +17,7 @@ const store = new Vuex.Store({
     supplier,
     client,
     user,
+    selling,
     stockin,
     stock,
   },

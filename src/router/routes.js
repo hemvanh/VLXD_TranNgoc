@@ -5,6 +5,8 @@ import pgProducts from 'pages/products'
 import pgSuppliers from 'pages/suppliers'
 import pgClients from 'pages/clients'
 import pgUsers from 'pages/users'
+import pgSelling from 'pages/selling'
+
 import pgStockins from 'pages/stockins'
 import pgStocks from 'pages/stocks'
 export default [
@@ -35,6 +37,11 @@ export default [
       {
         path: 'users',
         component: pgUsers,
+        meta: {requiresAuth: true},
+      },
+      {
+        path: 'selling',
+        component: pgSelling,
         meta: {requiresAuth: true},
       },
       {
