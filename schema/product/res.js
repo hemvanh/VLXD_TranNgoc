@@ -21,7 +21,7 @@ var resolvers = {
               case 0:
                 (0, _util._auth)(authUser);
                 _context.next = 3;
-                return _models.product.all();
+                return _models.Product.all();
 
               case 3:
                 return _context.abrupt('return', _context.sent);
@@ -52,7 +52,7 @@ var resolvers = {
               case 0:
                 (0, _util._auth)(authUser);
                 _context2.next = 3;
-                return Product.destroy({
+                return _models.Product.destroy({
                   where: {
                     id: {
                       $in: input
@@ -87,7 +87,7 @@ var resolvers = {
               case 0:
                 (0, _util._auth)(authUser);
                 _context3.next = 3;
-                return Product.upsert(input).then(function () {
+                return _models.Product.upsert(input).then(function () {
                   return input;
                 });
 
