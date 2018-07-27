@@ -9,6 +9,7 @@ import pgSelling from 'pages/selling'
 
 import pgStockins from 'pages/stockins'
 import pgStocks from 'pages/stocks'
+import pgStockOut from 'pages/stockout'
 export default [
   {
     path: '/login',
@@ -52,6 +53,11 @@ export default [
       {
         path: 'stocks',
         component: pgStocks,
+        meta: {requiresAuth: true},
+      },
+      {
+        path: 'stockouts',
+        component: pgStockOut,
         meta: {requiresAuth: true},
       },
     ],

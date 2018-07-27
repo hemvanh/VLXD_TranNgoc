@@ -8,7 +8,7 @@ import user from './user'
 import selling from './selling'
 import stockin from './stockin'
 import stock from './stock'
-
+import stockout from './stockout'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
@@ -20,6 +20,7 @@ const store = new Vuex.Store({
     selling,
     stockin,
     stock,
+    stockout,
   },
 })
 

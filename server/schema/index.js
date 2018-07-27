@@ -20,6 +20,9 @@ import stockRes from './stock/res'
 import clientDef from './client/def'
 import clientRes from './client/res'
 
+import stockoutDef from './stockout/def'
+import stockoutRes from './stockout/res'
+
 const SchemaDefinition = `
   schema {
     query: RootQuery,
@@ -36,6 +39,7 @@ const RootQuery = `
     listStockIn:[StockIn]
     listStock:[Stock]
     listClient: [Client]
+    listStockOut: [StockOut]
   }
 `
 
@@ -60,6 +64,7 @@ const RootMutation = `
     deleteClient(input:[Int]): Int
     updateClient(input:ClientInput): Client
 
+    deleteStockOut(input:[Int]): Int
   }
 `
 
@@ -75,6 +80,7 @@ export default makeExecutableSchema({
     stockDef,
     clientDef,
     sellingDef,
+    stockoutDef,
   ],
-  resolvers: [userRes, productRes, supplierRes, stockInRes, stockRes, clientRes, sellingRes],
+  resolvers: [userRes, productRes, supplierRes, stockInRes, stockRes, clientRes, sellingRes, stockoutRes],
 })
