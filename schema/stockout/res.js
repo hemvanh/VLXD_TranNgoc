@@ -12,7 +12,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 var resolvers = {
   RootQuery: {
-    listProduct: function () {
+    listStockOut: function () {
       var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(_, __, _ref) {
         var authUser = _ref.authUser;
         return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -21,7 +21,19 @@ var resolvers = {
               case 0:
                 (0, _util._auth)(authUser);
                 _context.next = 3;
-                return _models.product.all();
+                return _models.StockOut.findAll({
+                  include: [{
+                    model: _models.Product,
+                    required: true
+                  }]
+                }).then(function (StockOut) {
+                  return StockOut.map(function (listStockOut) {
+                    var productName = listStockOut.getProduct().get('name');
+                    return Object.assign(listStockOut.get(), {
+                      productName: productName
+                    });
+                  });
+                });
 
               case 3:
                 return _context.abrupt('return', _context.sent);
@@ -34,15 +46,15 @@ var resolvers = {
         }, _callee, this);
       }));
 
-      function listProduct(_x, _x2, _x3) {
+      function listStockOut(_x, _x2, _x3) {
         return _ref2.apply(this, arguments);
       }
 
-      return listProduct;
+      return listStockOut;
     }()
   },
   RootMutation: {
-    deleteProduct: function () {
+    deleteStockOut: function () {
       var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(_, _ref3, _ref4) {
         var input = _ref3.input;
         var authUser = _ref4.authUser;
@@ -52,7 +64,7 @@ var resolvers = {
               case 0:
                 (0, _util._auth)(authUser);
                 _context2.next = 3;
-                return Product.destroy({
+                return _models.StockOut.destroy({
                   where: {
                     id: {
                       $in: input
@@ -71,42 +83,11 @@ var resolvers = {
         }, _callee2, this);
       }));
 
-      function deleteProduct(_x4, _x5, _x6) {
+      function deleteStockOut(_x4, _x5, _x6) {
         return _ref5.apply(this, arguments);
       }
 
-      return deleteProduct;
-    }(),
-    updateProduct: function () {
-      var _ref8 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(_, _ref6, _ref7) {
-        var input = _ref6.input;
-        var authUser = _ref7.authUser;
-        return regeneratorRuntime.wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                (0, _util._auth)(authUser);
-                _context3.next = 3;
-                return Product.upsert(input).then(function () {
-                  return input;
-                });
-
-              case 3:
-                return _context3.abrupt('return', _context3.sent);
-
-              case 4:
-              case 'end':
-                return _context3.stop();
-            }
-          }
-        }, _callee3, this);
-      }));
-
-      function updateProduct(_x7, _x8, _x9) {
-        return _ref8.apply(this, arguments);
-      }
-
-      return updateProduct;
+      return deleteStockOut;
     }()
   }
 };

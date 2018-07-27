@@ -12,7 +12,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 var resolvers = {
   RootQuery: {
-    listProduct: function () {
+    listSelling: function () {
       var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(_, __, _ref) {
         var authUser = _ref.authUser;
         return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -21,7 +21,7 @@ var resolvers = {
               case 0:
                 (0, _util._auth)(authUser);
                 _context.next = 3;
-                return _models.product.all();
+                return _models.Selling.all();
 
               case 3:
                 return _context.abrupt('return', _context.sent);
@@ -34,15 +34,15 @@ var resolvers = {
         }, _callee, this);
       }));
 
-      function listProduct(_x, _x2, _x3) {
+      function listSelling(_x, _x2, _x3) {
         return _ref2.apply(this, arguments);
       }
 
-      return listProduct;
+      return listSelling;
     }()
   },
   RootMutation: {
-    deleteProduct: function () {
+    deleteSelling: function () {
       var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(_, _ref3, _ref4) {
         var input = _ref3.input;
         var authUser = _ref4.authUser;
@@ -52,7 +52,7 @@ var resolvers = {
               case 0:
                 (0, _util._auth)(authUser);
                 _context2.next = 3;
-                return Product.destroy({
+                return _models.Selling.destroy({
                   where: {
                     id: {
                       $in: input
@@ -71,13 +71,13 @@ var resolvers = {
         }, _callee2, this);
       }));
 
-      function deleteProduct(_x4, _x5, _x6) {
+      function deleteSelling(_x4, _x5, _x6) {
         return _ref5.apply(this, arguments);
       }
 
-      return deleteProduct;
+      return deleteSelling;
     }(),
-    updateProduct: function () {
+    updateSelling: function () {
       var _ref8 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(_, _ref6, _ref7) {
         var input = _ref6.input;
         var authUser = _ref7.authUser;
@@ -87,7 +87,7 @@ var resolvers = {
               case 0:
                 (0, _util._auth)(authUser);
                 _context3.next = 3;
-                return Product.upsert(input).then(function () {
+                return _models.Selling.upsert(input).then(function () {
                   return input;
                 });
 
@@ -102,11 +102,45 @@ var resolvers = {
         }, _callee3, this);
       }));
 
-      function updateProduct(_x7, _x8, _x9) {
+      function updateSelling(_x7, _x8, _x9) {
         return _ref8.apply(this, arguments);
       }
 
-      return updateProduct;
+      return updateSelling;
+    }()
+  },
+  Selling: {
+    // async product(selling, _, {authUser}) {
+    //   _auth(authUser)
+    //   return await Product.findById(selling.productId)
+    // },
+    productName: function () {
+      var _ref10 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(selling, _, _ref9) {
+        var authUser = _ref9.authUser;
+        return regeneratorRuntime.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                (0, _util._auth)(authUser);
+                _context4.next = 3;
+                return selling.getProduct().get('name');
+
+              case 3:
+                return _context4.abrupt('return', _context4.sent);
+
+              case 4:
+              case 'end':
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this);
+      }));
+
+      function productName(_x10, _x11, _x12) {
+        return _ref10.apply(this, arguments);
+      }
+
+      return productName;
     }()
   }
 };
