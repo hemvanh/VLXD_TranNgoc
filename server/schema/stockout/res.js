@@ -13,7 +13,7 @@ const resolvers = {
         ],
       }).then(StockOut => {
         return StockOut.map(listStockOut => {
-          const productName = listStockOut.getProduct().get('name')
+          const productName = listStockOut.get('Product').get('name')
           return Object.assign(listStockOut.get(), {
             productName: productName,
           })
