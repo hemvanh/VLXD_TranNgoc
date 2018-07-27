@@ -80,8 +80,7 @@ export default makeExecutableSchema({
     stockDef,
     clientDef,
     sellingDef,
+    stockoutDef,
   ],
-  resolvers: [userRes, productRes, supplierRes, stockInRes, stockRes, clientRes, sellingRes],
-  typeDefs: [SchemaDefinition, RootQuery, RootMutation, userDef, productDef, supplierDef, stockDef, stockoutDef],
-  resolvers: [userRes, productRes, supplierRes, stockRes, stockoutRes],
+  resolvers: [userRes, productRes, supplierRes, stockInRes, stockRes, clientRes, sellingRes, stockoutRes],
 })

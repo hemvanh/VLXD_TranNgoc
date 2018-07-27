@@ -35,6 +35,12 @@
           <q-item-side icon="people" />
           <q-item-main label="Khách Hàng" />
         </q-item>
+        <q-item-separator />
+        <q-item to="/selling">
+          <q-item-side icon="add_shopping_cart" />
+          <q-item-main label="Bán Hàng" />
+        </q-item>
+        <q-item-separator />
         <q-item to="/stockins">
           <q-item-side icon="archive" />
           <q-item-main label="Nhập Kho" />
@@ -43,21 +49,14 @@
           <q-item-side icon="account_balance" />
           <q-item-main label="Tồn Kho" />
         </q-item>
-        <q-item to="/selling">
-          <q-item-side icon="add_shopping_cart" />
-          <q-item-main label="Bán Hàng" />
+        <q-item to="/stockouts">
+          <q-item-side icon="store" />
+          <q-item-main label="Xuất Kho" />
         </q-item>
+        <q-item-separator />
         <q-item to="/users">
           <q-item-side icon="security" />
           <q-item-main label="Tài Khoản Đăng Nhập" />
-        </q-item>
-         <q-item to="/stocks">
-          <q-item-side icon="store" />
-          <q-item-main label="Kho" sublabel="Quản Lý Kho" />
-        </q-item>
-        <q-item to="/stockouts">
-          <q-item-side icon="store" />
-          <q-item-main label="Xuất Kho" sublabel="Quản Lý Xuất Kho" />
         </q-item>
       </q-list>
     </q-layout-drawer>
