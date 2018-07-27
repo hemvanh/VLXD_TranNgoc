@@ -19,6 +19,12 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
+      clientId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Client',
+        },
+      },
     })
   },
   down: (queryInterface, Sequelize) => {

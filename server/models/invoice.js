@@ -9,7 +9,12 @@ module.exports = (sequelize, DataTypes) => {
   )
   Invoice.associate = function(models) {
     // associations can be defined here
-    Invoice.hasMany(models.Selling)
+    Invoice.hasMany(models.Selling, {
+      foreignKey: 'invoiceId',
+    })
+    Invoice.belongsTo(models.Client, {
+      foreignKey: 'clientId',
+    })
   }
   return Invoice
 }
