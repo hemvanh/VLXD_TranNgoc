@@ -7,7 +7,7 @@ export const fetchRecs = ({commit}) => {
     listClient {
       id
       name
-      code
+      taxCode
       address
       phone
     }
@@ -58,7 +58,7 @@ export const updateRec = ({commit, getters}) => {
     `mutation ($input: ClientInput) {
       updateClient(input: $input) {
         id
-        code
+        taxCode
         name
         address
         phone

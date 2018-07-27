@@ -15,10 +15,10 @@ export default {
       width: '34px',
     },
     {
-      name: 'code',
-      label: 'Mã Khách Hàng',
+      name: 'taxCode',
+      label: 'Mã Số Thuế',
       align: 'left',
-      field: 'code',
+      field: 'taxCode',
       sortable: true,
     },
     {
@@ -49,9 +49,9 @@ export default {
       hidden: true,
     },
     {
-      name: 'code',
-      label: 'Mã Khách Hàng',
-      type: 'number',
+      name: 'taxCode',
+      label: 'Mã Số Thuế',
+      type: 'text',
       icon: 'outlined_flag',
     },
     {
@@ -69,7 +69,7 @@ export default {
     {
       name: 'phone',
       label: 'Số Điện Thoại',
-      type: 'number',
+      type: 'text',
       icon: 'phone',
     },
   ],

@@ -1,4 +1,4 @@
-import { makeExecutableSchema } from 'graphql-tools'
+import {makeExecutableSchema} from 'graphql-tools'
 import userDef from './user/def'
 import userRes from './user/res'
 
@@ -64,8 +64,17 @@ const RootMutation = `
 `
 
 export default makeExecutableSchema({
-  typeDefs: [SchemaDefinition, RootQuery, RootMutation, userDef, productDef, supplierDef, stockInDef, stockDef, clientDef],
-  resolvers: [userRes, productRes, supplierRes, stockInRes, stockRes, clientRes],
-  typeDefs: [SchemaDefinition, RootQuery, RootMutation, userDef, productDef, supplierDef, sellingDef],
-  resolvers: [userRes, productRes, supplierRes, sellingRes],
+  typeDefs: [
+    SchemaDefinition,
+    RootQuery,
+    RootMutation,
+    userDef,
+    productDef,
+    supplierDef,
+    stockInDef,
+    stockDef,
+    clientDef,
+    sellingDef,
+  ],
+  resolvers: [userRes, productRes, supplierRes, stockInRes, stockRes, clientRes, sellingRes],
 })
