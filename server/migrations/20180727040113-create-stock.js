@@ -9,7 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       quantity: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.FLOAT,
       },
       price: {
         type: Sequelize.INTEGER,
