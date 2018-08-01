@@ -8,19 +8,37 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      taxCode: {
+      no: {
+        type: Sequelize.STRING,
+      },
+      code: {
         type: Sequelize.STRING,
       },
       name: {
         type: Sequelize.STRING,
       },
+      taxcode: {
+        type: Sequelize.STRING,
+      },
       address: {
         type: Sequelize.STRING,
       },
-      phone: {
+      deliveryaddress: {
         type: Sequelize.STRING,
       },
-      notes: {
+      contact: {
+        type: Sequelize.STRING,
+      },
+      email: {
+        type: Sequelize.STRING,
+      },
+      tel: {
+        type: Sequelize.STRING,
+      },
+      fax: {
+        type: Sequelize.STRING,
+      },
+      website: {
         type: Sequelize.STRING,
       },
       createdAt: {
